@@ -6,8 +6,7 @@ export function request(ctx) {
 
     // Return the request configuration
     return {
-        resourcePath: `/model/anthropic.claude-3-sonnet-20240229-v1:0/invoke`,
-        method: "POST",
+        resourcePath: `/model/anthropic.claude-3-haiku-20240307-v1:0/invoke`, method: "POST",
         params: {
             headers: {
                 "Content-Type": "application/json",
@@ -32,12 +31,16 @@ export function request(ctx) {
 }
 
 export function response(ctx) {
-    // Parse the response body
     const parsedBody = JSON.parse(ctx.result.body);
-    // Extract the text content from the response
-    const res = {
+
+    if (!parsedBody.content || !parsedBody.content[0]) {
+        return {
+            body: null,
+            error: parsedBody.message || "Unexpected response from Bedrock",
+        };
+    }
+
+    return {
         body: parsedBody.content[0].text,
     };
-    // Return the response
-    return res;
 }
