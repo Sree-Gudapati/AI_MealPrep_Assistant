@@ -8,7 +8,7 @@ const backend = defineBackend({
   data,
 });
 
-const bedrockDataSource = backend.data.resources.graphqlApi.addHttpDataSource(
+const bedrockDataSource = backend.data.addHttpDataSource(
   "bedrockDS",
   "https://bedrock-runtime.us-east-1.amazonaws.com",
   {
