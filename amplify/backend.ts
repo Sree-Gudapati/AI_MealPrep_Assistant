@@ -22,7 +22,7 @@ const bedrockDataSource = backend.data.addHttpDataSource(
 bedrockDataSource.grantPrincipal.addToPrincipalPolicy(
   new PolicyStatement({
     resources: [
-      "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1",
+      "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-micro-v1:0",
     ],
     actions: ["bedrock:InvokeModel"],
 
