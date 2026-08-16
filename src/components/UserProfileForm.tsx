@@ -119,7 +119,7 @@ export function UserProfileForm() {
             type="number"
             value={form.age}
             onChange={(e) => setForm({ ...form, age: e.target.value })}
-            placeholder="e.g., 25"
+            placeholder="Age, e.g., 25"
           />
         </div>
 
@@ -130,7 +130,7 @@ export function UserProfileForm() {
             step="0.1"
             value={form.weightKg}
             onChange={(e) => setForm({ ...form, weightKg: e.target.value })}
-            placeholder="e.g., 70.5"
+            placeholder="Weight (kg) e.g., 70.5"
           />
         </div>
 
@@ -140,7 +140,7 @@ export function UserProfileForm() {
             type="number"
             value={form.heightCm}
             onChange={(e) => setForm({ ...form, heightCm: e.target.value })}
-            placeholder="e.g., 180"
+            placeholder="Height(cm) e.g., 180"
           />
         </div>
 
@@ -178,7 +178,7 @@ export function UserProfileForm() {
             type="text"
             value={form.dietaryRestrictions}
             onChange={(e) => setForm({ ...form, dietaryRestrictions: e.target.value })}
-            placeholder="e.g., vegetarian, gluten-free, dairy-free"
+            placeholder="Dietery Restrictions e.g., vegetarian, gluten-free, dairy-free"
           />
         </div>
 
