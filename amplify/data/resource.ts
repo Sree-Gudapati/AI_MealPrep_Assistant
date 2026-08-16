@@ -9,8 +9,7 @@ const schema = a.schema({
     .query()
     .arguments({
       ingredients: a.string().array(),
-
-
+      userContext: a.string(),
     })
     .returns(a.ref("BedrockResponse"))
     .authorization((allow) => [allow.authenticated()])

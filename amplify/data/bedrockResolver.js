@@ -1,6 +1,6 @@
 export function request(ctx) {
-    const { ingredients = [] } = ctx.args;
-    const prompt = `Suggest a recipe idea using these ingredients: ${ingredients.join(", ")}.`;
+    const { ingredients = [], userContext = "" } = ctx.args;
+    const prompt = `Suggest a recipe idea using these ingredients: ${ingredients.join(", ")}.${userContext ? `\n\nUser Context:\n${userContext}` : ""}`;
 
     return {
         resourcePath: `/model/amazon.nova-micro-v1:0/invoke`,

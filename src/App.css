@@ -5,6 +5,35 @@
   text-align: center;
 }
 
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 1rem;
+}
+
+.nav-btn {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  background-color: transparent;
+  color: #1a202c;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nav-btn:hover {
+  background-color: #f1f5f9;
+}
+
+.nav-btn.active {
+  background-color: #2563eb;
+  color: white;
+}
+
 .header-container {
   padding-bottom: 2.5rem;
   margin: auto;
