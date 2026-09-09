@@ -3,7 +3,9 @@ import { generateClient } from "aws-amplify/data";
 import type { Schema } from "../../amplify/data/resource";
 import "./WorkoutLog.css";
 
-const amplifyClient = generateClient<Schema>();
+const amplifyClient = generateClient<Schema>({
+  authMode: "userPool",
+});
 
 interface Workout {
   id: string;
@@ -11,6 +13,17 @@ interface Workout {
   type: string;
   durationMin: number;
   caloriesBurned: number;
+}
+
+interface WorkoutLogMutationInput {
+  date: string;
+  type: string;
+  durationMin: number;
+  caloriesBurned: number;
+}
+
+interface WorkoutLogMutationClient {
+  create: (input: WorkoutLogMutationInput) => Promise<unknown>;
 }
 
 export function WorkoutLog() {
@@ -61,8 +74,10 @@ export function WorkoutLog() {
       const durationMin: number = parseInt(formData.durationMin, 10);
       const caloriesBurned: number = parseInt(formData.caloriesBurned, 10);
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Schema<->create input inference is broken in the installed @aws-amplify/backend + TS 5.9 combo (resolves to `{ [x: string]: string[] }` instead of the real model shape); the runtime call is unaffected.
-      await (amplifyClient.models.WorkoutLog as any).create({
+      // Schema<->create input inference is broken in the installed @aws-amplify/backend + TS 5.9 combo
+      // (resolves to `{ [x: string]: string[] }` instead of the real model shape); the runtime call is unaffected.
+      // Cast through WorkoutLogMutationClient instead of `any` so a typo'd/renamed field here still fails to compile.
+      await (amplifyClient.models.WorkoutLog as unknown as WorkoutLogMutationClient).create({
         date,
         type,
         durationMin,

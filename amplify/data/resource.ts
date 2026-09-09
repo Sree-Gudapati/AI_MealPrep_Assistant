@@ -22,8 +22,8 @@ const schema = a.schema({
   UserProfile: a.model({
     owner: a.string(),
     age: a.integer(),
-    weightKg: a.float(),
-    heightCm: a.float(),
+    weightLbs: a.float(),
+    heightIn: a.float(),
     activityLevel: a.string(), // sedentary, moderate, active, etc.
     fitnessGoal: a.string(),   // cut, bulk, maintain
     dietaryRestrictions: a.string().array(),
@@ -43,10 +43,7 @@ export type Schema = ClientSchema<typeof schema>;
 export const data = defineData({
   schema,
   authorizationModes: {
-    defaultAuthorizationMode: "apiKey",
-    apiKeyAuthorizationMode: {
-      expiresInDays: 30,
-    },
+    defaultAuthorizationMode: "userPool",
   },
 });
 

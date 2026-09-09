@@ -47,3 +47,13 @@
   background-color: #cccccc;
   cursor: not-allowed;
 }
+
+.form-error {
+  color: #b00020;
+  background-color: #fdecea;
+  border: 1px solid #b00020;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}

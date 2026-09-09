@@ -6,14 +6,15 @@ import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
 import outputs from "../amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
-import { SettingsPage } from "./components/SettingsPage";
+import { UserProfileForm } from "./components/UserProfileForm";
+import { WorkoutLog } from "./components/WorkoutLog";
 
 Amplify.configure(outputs);
 const amplifyClient = generateClient<Schema>({
   authMode: "userPool",
 });
 
-type Page = "recipe" | "settings";
+type Page = "recipe" | "profile" | "workout";
 
 async function buildUserContext(): Promise<string> {
   try {
@@ -38,8 +39,8 @@ async function buildUserContext(): Promise<string> {
     if (profile) {
       const parts: string[] = [];
       if (profile.age) parts.push(`Age: ${profile.age}`);
-      if (profile.heightCm) parts.push(`Height: ${profile.heightCm}cm`);
-      if (profile.weightKg) parts.push(`Weight: ${profile.weightKg}kg`);
+      if (profile.heightIn) parts.push(`Height: ${profile.heightIn}in`);
+      if (profile.weightLbs) parts.push(`Weight: ${profile.weightLbs}lbs`);
       if (profile.activityLevel) parts.push(`Activity Level: ${profile.activityLevel}`);
       if (profile.fitnessGoal) parts.push(`Fitness Goal: ${profile.fitnessGoal}`);
       if (parts.length > 0) {
@@ -164,14 +165,22 @@ function App() {
           Recipe Generator
         </button>
         <button
-          className={`nav-btn ${page === "settings" ? "active" : ""}`}
-          onClick={() => setPage("settings")}
+          className={`nav-btn ${page === "profile" ? "active" : ""}`}
+          onClick={() => setPage("profile")}
         >
-          Profile & Workouts
+          Profile Setup
+        </button>
+        <button
+          className={`nav-btn ${page === "workout" ? "active" : ""}`}
+          onClick={() => setPage("workout")}
+        >
+          Workout Log
         </button>
       </nav>
 
-      {page === "recipe" ? <RecipePage /> : <SettingsPage />}
+      {page === "recipe" && <RecipePage />}
+      {page === "profile" && <UserProfileForm />}
+      {page === "workout" && <WorkoutLog />}
     </div>
   );
 }
