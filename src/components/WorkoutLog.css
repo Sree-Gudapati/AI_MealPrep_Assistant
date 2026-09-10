@@ -6,15 +6,16 @@
 
 .workout-container h2 {
   margin-bottom: 1.5rem;
-  color: #1a202c;
+  color: var(--text);
 }
 
 .workout-form {
   margin-bottom: 2rem;
   padding: 1rem;
-  border: 1px solid #eee;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 8px;
-  color: #1a202c;
+  color: var(--text);
 }
 
 .form-group {
@@ -25,44 +26,46 @@
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
-  color: #1a202c;
+  color: var(--text);
 }
 
 .form-group input,
 .form-group select {
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   border-radius: 4px;
   font-size: 1rem;
-  color: #1a202c;
-  background-color: #ffffff;
+  color: var(--text);
+  background-color: var(--surface);
 }
 
 .submit-btn {
   width: 100%;
   padding: 0.75rem;
-  background-color: #4CAF50;
+  background-color: var(--primary);
   color: white;
   border: none;
   border-radius: 4px;
   font-size: 1rem;
   cursor: pointer;
   margin-top: 1rem;
+  transition: background-color 0.2s;
 }
 
 .submit-btn:hover {
-  background-color: #45a049;
+  background-color: var(--primary-hover);
 }
 
 .submit-btn:disabled {
-  background-color: #cccccc;
+  background-color: var(--border);
+  color: var(--text-muted);
   cursor: not-allowed;
 }
 
 .workouts-list h3 {
   margin-bottom: 1rem;
-  color: #1a202c;
+  color: var(--text);
 }
 
 .workouts-table {
@@ -74,14 +77,14 @@
 .workouts-table td {
   padding: 0.75rem;
   text-align: left;
-  border-bottom: 1px solid #eee;
-  color: #1a202c;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
 }
 
 .workouts-table th {
-  background-color: #f9f9f9;
+  background-color: var(--bg);
   font-weight: 600;
-  color: #1a202c;
+  color: var(--text);
 }
 
 .capitalize {
@@ -90,14 +93,15 @@
 
 .delete-btn {
   padding: 0.25rem 0.75rem;
-  background-color: #f44336;
+  background-color: var(--danger);
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.85rem;
+  transition: background-color 0.2s;
 }
 
 .delete-btn:hover {
-  background-color: #da190b;
+  background-color: var(--danger-hover);
 }

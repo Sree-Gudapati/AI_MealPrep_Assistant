@@ -111,7 +111,7 @@ function RecipePage() {
         <h1 className="main-header">
           Meet Your Personal
           <br />
-          <span className="highlight">Recipe AI</span>
+          Recipe AI
         </h1>
         <p className="description">
           Simply type a few ingredients using the format ingredient1,
@@ -157,6 +157,24 @@ function App() {
 
   return (
     <div className="app-container">
+      <div className="brand-row">
+        <svg
+          className="brand-mark"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M11 20A7 7 0 0 1 4 13c0-6 7-12 13-12 0 6-6 13-12 13Z" />
+          <path d="M11 20c-3-1-5-3-6-6" />
+        </svg>
+        <span className="brand-name">MealPrep AI</span>
+      </div>
       <nav className="main-nav">
         <button
           className={`nav-btn ${page === "recipe" ? "active" : ""}`}
