@@ -1,19 +1,41 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --bg: #f6f7f1;
+  --surface: #ffffff;
+  --text: #1c2a1a;
+  --text-muted: #5b6b57;
+  --primary: #3e7a45;
+  --primary-hover: #2f5f35;
+  --accent: #d9a441;
+  --accent-hover: #b9862b;
+  --danger: #c1432b;
+  --danger-hover: #a33823;
+  --border: #e3e0d3;
+
+  --font-body: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+
+  font-family: var(--font-body);
   line-height: 1.5;
   font-weight: 400;
 
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--text);
+  background-color: var(--bg);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
+body {
+  margin: 0;
+  background-color: var(--bg);
+}
+
+#root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-
 }
 
 .card {
@@ -21,7 +43,32 @@
 }
 
 .read-the-docs {
-  color: #888;
+  color: var(--text-muted);
+}
+
+a {
+  color: var(--primary);
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+button,
+a,
+input,
+select,
+.nav-btn {
+  font-family: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+.nav-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 .box:nth-child(3n + 1) {
