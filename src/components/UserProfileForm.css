@@ -6,6 +6,7 @@
 
 .form-container h2 {
   margin-bottom: 1.5rem;
+  color: #1a202c;
 }
 
 .form-group {
@@ -16,6 +17,7 @@
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
+  color: #1a202c;
 }
 
 .form-group input,
@@ -25,6 +27,8 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
+  color: #1a202c;
+  background-color: #ffffff;
 }
 
 .submit-btn {
